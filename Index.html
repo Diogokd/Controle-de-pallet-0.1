@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel</title>
+
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    #tela-cheia {
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      padding: 8px 14px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: white;
+      color: #222;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    id="painel"
+    title="Painel do aplicativo"
+    src="https://script.google.com/macros/s/AKfycbxRIzygEpZJZ_rKVuq19mWR7Aj26HudXhrok5LuWNhjMvbyY1YhMmMG-9IlF1iT__wpNg/exec"
+    allowfullscreen>
+  </iframe>
+
+  <button id="tela-cheia" type="button">Tela cheia</button>
+
+  <script>
+    const painel = document.getElementById('painel');
+    const botao = document.getElementById('tela-cheia');
+
+    botao.hidden = !document.fullscreenEnabled;
+
+    botao.addEventListener('click', async () => {
+      try {
+        await painel.requestFullscreen();
+      } catch {
+        botao.textContent = 'Tela cheia indisponível';
+      }
+    });
+  </script>
+</body>
+</html>
