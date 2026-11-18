@@ -1,29 +1,48 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Controle de Pallets | Adega Brasil</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>Sistema Integrado</title>
+
   <style>
-    html, body, iframe { margin: 0; width: 100%; height: 100%; border: 0; }
-    iframe { display: block; }
-    button { position: fixed; bottom: 12px; right: 12px; padding: 8px; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #111;
+    }
+
+    iframe {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      border: none;
+      display: block;
+      background: #fff;
+    }
   </style>
 </head>
+
 <body>
-  <iframe id="painel" title="Controle de pallets" allowfullscreen
-    src="https://script.google.com/macros/s/AKfycbwSQfVe189IDmRzNsLE5-4MLIzZ-H4jwrJzQHvJXvg99nyxT7WgBKEKIZkdSqbcT7ad-w/exec"></iframe>
-  <button id="ampliar" type="button">Tela cheia</button>
-  <script>
-    const ampliar = document.getElementById('ampliar');
-    ampliar.hidden = !document.fullscreenEnabled;
-    ampliar.addEventListener('click', async () => {
-      try {
-        await document.getElementById('painel').requestFullscreen();
-      } catch {
-        ampliar.textContent = 'Tela cheia indisponível';
-      }
-    });
-  </script>
+
+  <iframe
+    id="appFrame"
+    src="https://script.google.com/macros/s/AKfycbxRIzygEpZJZ_rKVuq19mWR7Aj26HudXhrok5LuWNhjMvbyY1YhMmMG-9IlF1iT__wpNg/exec"
+    allow="fullscreen"
+    allowfullscreen>
+  </iframe>
+
 </body>
 </html>
